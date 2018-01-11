@@ -1,13 +1,13 @@
 {{#partial "content"}}
     <h1>Add a new Post!</h1>
 
-    <form action="/posts/new" method="post">
+    <form action="/words/new" method="post">
 
         <label for="entry">Word Entry</label>
         <input id="entry" name="entry" type="text">
 
         <label for="type">Select Word Type</label>
-        <select class="form-control" id="type">
+        <select name="type" class="form-control" id="type">
             <option value="noun">noun</option>
             <option value="pronoun">pronoun</option>
             <option value="verb">verb</option>
@@ -16,11 +16,11 @@
             <option value="conjunction">conjunction</option>
             <option value="preposition">preposition</option>
             <option value="interjection">interjection</option>
-
         </select>
 
+
         <label for="definition">Definition</label>
-        <input id="definition" name="definition" type="text">
+        <input id="definition" name="definition" type="textarea">
 
         <label for="synonym">Synonyms</label>
         <input id="synonym" name="synonym" type="text">
