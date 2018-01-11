@@ -34,7 +34,6 @@ public class App {
             String definition = request.queryParams("definition");
             String synonym = request.queryParams("synonym");
             Word newWord = new Word(entry, type, definition, synonym);
-            model.put("word", newWord);
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -55,7 +54,25 @@ public class App {
             return new ModelAndView(model, "word-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: show a form to update a post
+        get("/words/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfWordToEdit = Integer.parseInt(req.params("id"));
+            Word editWord = Word.findById(idOfWordToEdit);
+            model.put("editWord", editWord);
+            return new ModelAndView(model, "edit.hbs");
+        }, new HandlebarsTemplateEngine());
 
+        //post: process a form to update a post.
+
+        post("/words/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newDefinition = req.queryParams("definition");
+            int idOfWordToEdit = Integer.parseInt(req.params("id"));
+            Word editWord = Word.findById(idOfWordToEdit);
+            editWord.update(newDefinition); //don’t forget me
+            return new ModelAndView(model, "word-detail.hbs");
+        }, new HandlebarsTemplateEngine());
 
     }
 }

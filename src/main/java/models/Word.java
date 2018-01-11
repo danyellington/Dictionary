@@ -9,6 +9,7 @@ public class Word {
     private String definition;
     private String synonym;
     private int id;
+    private boolean published;
     private static ArrayList<Word> submissions = new ArrayList<>();
 
     public Word(String entry, String type, String definition, String synonym) {
@@ -18,6 +19,7 @@ public class Word {
         this.synonym = synonym;
         submissions.add(this);
         this.id = submissions.size();
+        this.published = false;
     }
 
     public String getEntry(){
@@ -51,4 +53,14 @@ public class Word {
     public static void clearAllWords() {
         submissions.clear();
     }
+
+    public void update(String definition) {
+        this.definition = definition;
+    }
+
+    public boolean getPublished() {
+        return this.published;
+    }
+
 }
+
