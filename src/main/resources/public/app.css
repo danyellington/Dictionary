@@ -1,0 +1,18 @@
+h1 {
+text-align: center;
+
+}
+
+
+body {
+background-image: url("images/front-cover.jpg");
+background size: cover;
+
+}
+
+h1 {
+color: #DAA520;
+text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black !important;
+font-family: Apple Chancery, cursive;
+
+}
